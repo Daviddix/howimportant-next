@@ -1,0 +1,7 @@
+.topics-body p{
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+    color: var(--colorPrimary);
+    font-family: aktiv-bold;
+    text-decoration: underline;
+}

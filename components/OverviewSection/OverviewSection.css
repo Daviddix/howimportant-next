@@ -1,0 +1,12 @@
+.overview-inner p{
+    font-size: 1.4rem;
+    color: var(--textColor);
+    letter-spacing: -.4px;
+    line-height: 1.3;
+}
+
+@media screen and (min-width:600px) {
+    .overview-inner p{
+        font-size: 1.6rem;
+    }
+}

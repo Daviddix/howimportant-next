@@ -1,0 +1,82 @@
+:root{
+    --headerGradient: #3396ff8a, #99caffc2;
+    --colorPrimary: hsl(211, 100%, 45%);
+    --darkestBlue: #050F19;
+    --chipBorder: #DBFFDB;
+    --chipBg: #219B21;
+    --chipBorderMed: #fff6d8;
+    --chipBgMed: hsl(39, 65%, 37%);
+    --chipBorderLow: #ffdbdb;
+    --chipBgLow: #9b2121;
+    --textColor: #111111;
+    --youtubeSubtitle: #444444;
+    --falseBg: hsl(211, 100%, 95%);
+    --codeHeader: #393939;
+    --codeBody: #1A1A1A;
+    --testBorder: #0F2D4C;
+    }
+    
+    .homepage-header{
+        padding: 4rem 0rem 2rem;
+        position: relative;
+        box-shadow: 0 .4rem 1rem rgba(0, 0, 0, 0.199);
+        background-image: url("../assets/images/header-mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+    }
+    
+    .homepage-header .homepage-inner{
+        width:90vw;
+        max-width:50rem;
+        margin: auto;
+        z-index: 2;
+        position: relative;
+    }
+    
+    .homepage-header h1{
+        font-family: aktiv-med;
+        font-size: 2.6rem;
+        color:white;
+        margin: 0 0 1.5rem 0;
+        font-weight: 500;
+        letter-spacing: -.8px;
+    }
+    
+    .test-content{
+        width:90vw;
+        max-width: 80rem;
+        margin: 2rem auto;
+    }
+    
+    .test-content h1{
+        font-size: 1.8rem;
+        font-family: aktiv-bold;
+        margin: 0 0 1rem 0;
+        font-weight: normal;
+    }
+    
+    @media screen and (min-width:900px) {
+        .homepage-header{
+            background-image: url("../assets/images/header-pc.png");
+            padding-bottom: 5rem;
+            box-shadow:none;
+        }
+    
+        .homepage-header h1{
+            text-align: center;
+            font-size: 3rem;
+            letter-spacing: -1px;
+        }
+        
+        .tests{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+            column-gap: 2rem;
+        }
+    
+        .test-content{
+            margin: 10rem auto;
+        }
+    
+    }

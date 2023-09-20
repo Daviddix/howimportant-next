@@ -1,0 +1,38 @@
+.test-content .test-container{
+    padding: 1.2rem;
+    border:1px solid rgba(128, 128, 128, 0.356);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto 2rem auto;
+    width:100%;
+    max-width:60rem;
+}
+
+.text-content h2{
+    margin: 0 0 .5rem 0;
+    font-weight: normal;
+    font-family: aktiv-med;
+}
+
+.text-content p{
+    font-size: 1.2rem;
+    opacity: .8;
+    width: 95%;
+}
+
+@media screen and (min-width:900px) {   
+    .test-content h2{
+        font-size: 1.6rem;
+    }
+
+    .test-content p{
+        font-size: 1.4rem;
+    }
+
+}

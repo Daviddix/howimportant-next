@@ -1,0 +1,10 @@
+.docs a{
+    display: block;
+    text-align: center;
+}
+
+@media screen and (min-width:600px) {
+    .docs a{
+        font-size:1.2rem;
+    }
+}

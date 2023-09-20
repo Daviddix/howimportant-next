@@ -1,0 +1,24 @@
+.usage p{
+    font-size: 2.5rem;
+    font-family: aktiv-bold;
+    text-align: center; 
+    letter-spacing: -2px;
+}
+
+.usage.high{
+    color: #219B21;
+}
+
+.usage.med{
+    color: hsl(39, 74%, 45%);
+}
+
+.usage.low{
+    color: #9b2121;
+}
+
+@media screen and (min-width:600px) {
+    .usage p{
+        font-size:2.8rem;
+    }
+}

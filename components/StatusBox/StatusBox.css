@@ -1,0 +1,30 @@
+.status .chip-high{
+    text-align: center;
+    border: 1px solid var(--chipBg);
+    background-color: var(--chipBorder);
+    max-width: fit-content;
+    margin: 0rem auto;
+    padding:.2rem .5rem;
+    border-radius: 5rem;
+    -webkit-border-radius: 5rem;
+    -moz-border-radius: 5rem;
+    -ms-border-radius: 5rem;
+    -o-border-radius: 5rem;
+}
+
+.status .chip-med{
+    border: 1px solid var(--chipBgMed);
+    background-color: var(--chipBorderMed);
+}
+
+.status .chip-low{
+    border: 1px solid var(--chipBgLow);
+    background-color: var(--chipBorderLow);
+}
+
+@media screen and (min-width:600px) {
+    .status .chip-high{
+        font-size: 1.2rem;
+        padding:.2rem .8rem;
+    }
+}

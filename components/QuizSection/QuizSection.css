@@ -1,0 +1,29 @@
+.quiz-inner .question{
+    margin: 1rem 0rem;
+    font-size: 1.4rem;
+}
+
+.answers button{
+    padding: .6rem 2rem;
+    background-color: var(--colorPrimary);
+    border:none;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    color:white;
+    margin: 0 2rem 0 0;
+    font-family: aktiv-med;
+}
+
+.answers button:last-of-type{
+    background-color: var(--falseBg);
+    color: var(--testBorder);
+}
+
+@media screen and (min-width:600px) {
+    .quiz{
+        margin: 2rem 0rem;
+    }
+}

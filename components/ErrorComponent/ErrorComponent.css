@@ -1,0 +1,29 @@
+.error img{
+    display:block;
+    max-width: 30rem;
+    margin: 4rem auto;
+}
+
+.error p{
+    font-family: aktiv-med;
+    font-size: 1.6rem;
+    width:80vw ;
+    max-width: 50rem;
+    text-align: center;
+    margin:2rem auto;
+}
+
+.error h1{
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 5rem;
+}
+
+.error a{
+    display: block;
+    color: var(--colorPrimary);
+    font-family: aktiv-bold;
+    font-size: 1.4rem;
+    margin: 1rem auto;
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+.youtube-resources .youtube-video-container{
+    margin: 0 0 2rem 0;
+}
+
+.youtube-video-container .video{
+    width:100%;
+    aspect-ratio: 16/9;
+    /* background-image: url("../../Downloads/sddefault.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.youtube-video-container .name-and-duration{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:1.4rem;
+    margin: .8rem 0 .2rem 0;
+}
+
+.name-and-duration .video-name{
+    font-family: aktiv-bold;
+    max-width: 90%;
+}
+
+.name-and-duration .video-duration{
+    font-size: 1.3rem;
+    font-family: aktiv-med;
+    opacity: .6;
+}
+
+@media screen and (min-width:600px) {
+    .name-and-duration .video-name{
+        font-size: 1.6rem;
+    }
+}

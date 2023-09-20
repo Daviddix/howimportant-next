@@ -1,0 +1,61 @@
+.resources-inner .resources-tab{
+    width:100%;
+    max-width: 40rem;
+    background-color: var(--darkestBlue);
+    display:flex;
+    align-items: stretch;
+    justify-content: space-between;
+    column-gap: 1rem;
+    padding: .5rem;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    margin: 2rem auto;
+    flex-wrap: wrap;
+}
+
+.resources-tab > button{
+    flex:1;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem .8rem;
+    border:none;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: transparent;
+    opacity: .3;
+    color:white;
+    font-size: 1.4rem;
+}
+
+.resources-tab > button img{
+    margin: 0 1rem 0 0;
+}
+
+.resources-tab > button.active{
+    opacity: 1;
+    background-color: var(--colorPrimary);
+}
+
+@media screen and (min-width:600px) {
+    .resources-tab > button{
+        font-size: 1.6rem;
+    }
+
+    .resources-inner .youtube-resources{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+
+    .resources-inner .article-resources{
+        margin-top:5rem;
+    }
+    
+}
