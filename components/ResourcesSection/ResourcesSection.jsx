@@ -1,3 +1,6 @@
+"use client"
+import {useState} from "react"
+
 import resourcesIcon from "../../assets/icons/resources-icon.svg"
 import youtubeIcon from "../../assets/icons/yt-icon.svg"
 import articlesIcon from "../../assets/icons/article-icon.svg"
@@ -7,7 +10,12 @@ import SingleArticle from "../SingleArticle/SingleArticle"
 import SingleVideo from "../SingleVideo/SingleVideo"
 import Image from "next/image"
 
-function ResourcesSection() {
+function ResourcesSection({youtubeVideos}) {
+  const [activeTab, setActiveTab] = useState("youtube")
+  const mappedVideos = youtubeVideos.map((video)=>{
+    console.log(video.id.videoId)
+    return <SingleVideo id={video.id.videoId} key={video.id.videoId} videoTitle={video.snippet.title} thumbnail={video.snippet.thumbnails.high.url} channelName={video.snippet.channelTitle} />
+  })
   return (
     <section className="resources">
       <div className="resources-inner">
@@ -18,12 +26,16 @@ function ResourcesSection() {
 
           <div className="resources-tab">
 
-            <button className="youtube">
+            <button 
+            onClick={()=> setActiveTab("youtube")}
+            className={activeTab == "youtube"? "youtube active" : "youtube"}>
               <Image src={youtubeIcon} alt="youtube icon" />
               <p>Youtube Tutorials</p>
             </button>
 
-            <button className="articles active">
+            <button 
+             onClick={()=> setActiveTab("articles")}
+            className={activeTab == "articles"? "articles active" : "articles"}>
               <Image src={articlesIcon} alt="articles icon" />
               <p>Articles</p>
             </button>
@@ -31,17 +43,14 @@ function ResourcesSection() {
 
           </div>
 
-          {/* <div className="youtube-resources">
-            
+          {activeTab == "youtube" && <div className="youtube-resources">            
 
-           <SingleVideo />
-          </div> */}
+           {mappedVideos}
+          </div> }
 
-          <div className="article-resources">
+          {activeTab == "articles" && <div className="article-resources">
             <SingleArticle />
-
-             
-          </div>
+          </div>}
 
       </div>
 

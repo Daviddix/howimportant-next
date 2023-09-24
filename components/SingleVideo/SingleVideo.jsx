@@ -1,17 +1,22 @@
 import "./SingleVideo.css"
 
-function SingleVideo() {
+function SingleVideo({videoTitle, thumbnail, channelName, id}) {
   return (
     <div className="youtube-video-container">
-              <div className="video">
-                
-              </div>
+              <iframe
+  id="inlineFrameExample"
+  title={videoTitle}
+  
+  src={"https://www.youtube.com/embed/" + id}
+  className="video"
+>
+</iframe>
 
               <div className="name-and-duration">
-                <p className='video-name'>Learn JavaScript Objects with Beau</p>
+                <p className='video-name'>{videoTitle}</p>
                 <p className='video-duration'>7min</p>
               </div>
-              <p className="creator">Freecodecamp</p>
+              <p className="creator">{channelName}</p>
             </div>
   )
 }

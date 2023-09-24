@@ -1,10 +1,15 @@
+"use client"
 import Image from "next/image"
 import arrow from "../../assets/icons/right-arrow.svg"
 import "./Test.css"
+import Link from "next/link"
 
 function Test() {
+  
   return (
-    <div tabIndex={0} className="test-container">
+      <Link href="/arrays/javascript">
+    <div 
+    tabIndex={0} className="test-container">
           <div className="text-content">
             <h2>Arrays in JavaScript</h2>
             <p>
@@ -15,6 +20,7 @@ function Test() {
 
           <Image src={arrow} alt="arrow svg" />
         </div>
+        </Link>
   )
 }
 

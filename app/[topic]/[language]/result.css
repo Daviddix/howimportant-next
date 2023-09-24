@@ -2,7 +2,7 @@
         padding: 4rem 0rem 2rem;
         position: relative;
         box-shadow: 0 .4rem 1rem rgba(0, 0, 0, 0.199);
-        background-image: url("../../assets/images/header-mobile.png");
+        background-image: url("../../../assets/images/header-mobile.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: bottom;
@@ -106,7 +106,7 @@ section:nth-child(3)> div > div[class*="heading"] img{
 
 @media screen and (min-width: 600px) {
     .homepage-header{
-            background-image: url("../../assets/images/header-pc.png");
+            background-image: url("../../../assets/images/header-pc.png");
             padding-bottom: 5rem;
             box-shadow:none;
     }

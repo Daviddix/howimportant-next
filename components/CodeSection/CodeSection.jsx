@@ -2,7 +2,8 @@ import Image from "next/image"
 import codeIcon from "../../assets/icons/code-icon.svg"
 import "./CodeSection.css"
 
-function CodeSection() {
+function CodeSection({codeExample, language}) {
+  
   return (
     <section className="code-example">
         <div className="code-example-inner">
@@ -13,13 +14,17 @@ function CodeSection() {
 
           <div className="code-diagram">
             <div className="code-diagram-header">
-              <p>JavaScript</p>
+              <p>{language}</p>
             </div>
-            <code>
-              const person = &#123; <br /> 
+            <code >
+              <pre>
+
+              {codeExample}
+              </pre>
+              {/* const person = &#123; <br /> 
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name : "John", <br />
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; age : 20 <br />
-              &#125; ;
+              &#125; ; */}
             </code>
           </div>
 

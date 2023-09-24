@@ -1,11 +1,11 @@
 import "./StatusBox.css"
 
-function StatusBox() {
+function StatusBox({currentStatus}) {
   return (
     <div className="status">
               <h4>Status</h4>
-              <div className="chip-high">
-                In Use
+              <div className={currentStatus.toLowerCase() == "in use"? "chip-high" : "chip-low"}>
+                {currentStatus}
               </div>
             </div>
   )

@@ -1,6 +1,9 @@
 .docs a{
     display: block;
     text-align: center;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: anywhere;
 }
 
 @media screen and (min-width:600px) {

@@ -3,7 +3,7 @@ import SearchContainer from '../components/SearchContainer/SearchContainer.jsx'
 import "./Homepage.css"
 
 export const metadata = {
-  title : "HowImportant",
+  title : "HowImportant | Discover Useful Ratings for Programming Topics",
   description : "Home page"
 }
 

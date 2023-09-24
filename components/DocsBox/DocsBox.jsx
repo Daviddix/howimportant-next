@@ -1,12 +1,12 @@
 import "./DocsBox.css"
 
-function DocsBox() {
+function DocsBox({docs}) {
   return (
     <div className="docs">
               <h4>Documentation</h4>
 
-              <a href="#" target="_blank">
-                MDN-Objects-JavaScript
+              <a href={docs} target="_blank">
+                {docs.substr(0, 25)}...
               </a>
             </div>
   )
