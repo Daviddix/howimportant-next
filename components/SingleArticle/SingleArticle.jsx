@@ -3,19 +3,21 @@ import bookIcon from "../../assets/icons/book.svg"
 import rightArrow from "../../assets/icons/arrow-up-right.svg"
 import Image from "next/image"
 
-function SingleArticle() {
+function SingleArticle({title, site, link}) {
   return (
+    <a href={site}>
     <div className="article">
               <Image src={bookIcon} alt="book icon" />
               
               <div className="other-info">
                 <div className="article-heading">
-                  <h1>A deeper dive into JavaScript Objects</h1>
+                  <h1>{title}</h1>
                   <Image src={rightArrow} alt="arrow icon" />
                 </div>
-                <p className="source">Medium</p>
+                <p className="source">{site}</p>
               </div>
             </div>
+            </a>
   )
 }
 

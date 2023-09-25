@@ -53,6 +53,8 @@ function Resultpage({params}) {
       setOverview(gptResponse.overviewOfTopic)
       setCodeExample(gptResponse.syntaxExample)
       setYoutubeVideos(data.youtubeValue)
+      
+      setArticles(gptResponse.articles)
     })
     .catch((err)=>{
       throw new Error
@@ -89,7 +91,7 @@ function Resultpage({params}) {
 
       <CodeSection codeExample={codeExample} language={language} />
 
-      <ResourcesSection youtubeVideos={youtubeVideos} />
+      <ResourcesSection youtubeVideos={youtubeVideos} articles={articles} />
 
       <TopicsSection />
 

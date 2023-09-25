@@ -10,11 +10,14 @@ import SingleArticle from "../SingleArticle/SingleArticle"
 import SingleVideo from "../SingleVideo/SingleVideo"
 import Image from "next/image"
 
-function ResourcesSection({youtubeVideos}) {
+function ResourcesSection({youtubeVideos, articles}) {
   const [activeTab, setActiveTab] = useState("youtube")
   const mappedVideos = youtubeVideos.map((video)=>{
-    console.log(video.id.videoId)
     return <SingleVideo id={video.id.videoId} key={video.id.videoId} videoTitle={video.snippet.title} thumbnail={video.snippet.thumbnails.high.url} channelName={video.snippet.channelTitle} />
+  })
+
+  const mappedArticles = articles.map((article)=>{
+    return <SingleArticle title={article.title} site={article.site} link={article.link} />
   })
   return (
     <section className="resources">
@@ -49,7 +52,7 @@ function ResourcesSection({youtubeVideos}) {
           </div> }
 
           {activeTab == "articles" && <div className="article-resources">
-            <SingleArticle />
+            {mappedArticles}
           </div>}
 
       </div>

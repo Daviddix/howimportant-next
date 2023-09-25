@@ -14,7 +14,6 @@ function SingleVideo({videoTitle, thumbnail, channelName, id}) {
 
               <div className="name-and-duration">
                 <p className='video-name'>{videoTitle}</p>
-                <p className='video-duration'>7min</p>
               </div>
               <p className="creator">{channelName}</p>
             </div>
