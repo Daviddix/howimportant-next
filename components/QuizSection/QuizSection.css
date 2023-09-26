@@ -15,11 +15,29 @@
     color:white;
     margin: 0 2rem 0 0;
     font-family: aktiv-med;
+    text-transform: capitalize;
 }
 
 .answers button:last-of-type{
     background-color: var(--falseBg);
     color: var(--testBorder);
+}
+
+.answers button.clicked-right{
+    border : 2px solid rgb(156, 156, 245) ;
+    scale:1.1;
+}
+
+.answers button.clicked-wrong{
+    border : 2px solid rgb(245, 156, 156) ;
+    scale:1.1;
+}
+
+.answers button.clicked-right + button,
+.answers button.clicked-wrong + button
+{
+    opacity: .5;
+    pointer-events: none; 
 }
 
 @media screen and (min-width:600px) {

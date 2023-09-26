@@ -1,8 +1,13 @@
+import Link from 'next/link'
 import React from 'react'
 
-function SingleTopic() {
+function SingleTopic({topic, language}) {
   return (
-    <p>Maps in JavaScript</p>
+    <Link
+    href={`/${topic}/${language}`}
+    >
+    <p>{topic} in {language}</p>
+    </Link>
   )
 }
 

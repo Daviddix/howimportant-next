@@ -40,6 +40,7 @@ function Resultpage({params}) {
   const [youtubeVideos, setYoutubeVideos] = useState([])
   const [articles, setArticles] = useState([])
   const [relatedTopics, setRelatedTopics] = useState([])
+  const [quiz, setQuiz] = useState({})
 
 
   useEffect(()=>{
@@ -55,6 +56,8 @@ function Resultpage({params}) {
       setYoutubeVideos(data.youtubeValue)
       
       setArticles(gptResponse.articles)
+      setRelatedTopics(gptResponse.relatedTopics)
+      setQuiz(gptResponse.simpleQuiz)
     })
     .catch((err)=>{
       throw new Error
@@ -93,9 +96,9 @@ function Resultpage({params}) {
 
       <ResourcesSection youtubeVideos={youtubeVideos} articles={articles} />
 
-      <TopicsSection />
+      <TopicsSection relatedTopics={relatedTopics} />
 
-      <QuizSection />
+      <QuizSection quiz={quiz} />
     </main>
   )
 }

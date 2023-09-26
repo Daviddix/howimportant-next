@@ -3,7 +3,10 @@ import topicsIcon from "../../assets/icons/topics-icon.svg"
 import SingleTopic from "../SingleTopic/SingleTopic"
 import "./TopicsSection.css"
 
-function TopicsSection() {
+function TopicsSection({relatedTopics}) {
+  const mappedTopics = relatedTopics.map((topic) => {
+    return <SingleTopic topic={topic.topicName} language={topic.language} />
+  })
   return (
     <section className="topics">
         <div className="topics-inner">
@@ -13,9 +16,7 @@ function TopicsSection() {
           </div>
 
           <div className="topics-body">
-          <SingleTopic />
-          <SingleTopic />
-          <SingleTopic />
+          {mappedTopics}
         </div>
         </div>
 

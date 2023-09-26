@@ -5,7 +5,7 @@ import Image from "next/image"
 
 function SingleArticle({title, site, link}) {
   return (
-    <a href={site}>
+    <a href={link} target="_blank">
     <div className="article">
               <Image src={bookIcon} alt="book icon" />
               
