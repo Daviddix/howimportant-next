@@ -10,6 +10,34 @@ const openai = new OpenAI({
 const API_KEY  = "AIzaSyDNh4f0jZWnSlRStQbf7-6ysLjBgeosfAc"
 const { google } = require('googleapis')
 const youtube = google.youtube('v3');
+const programmingLanguages = [
+    "JavaScript",
+    "Java",
+    "C++",
+    "Python",
+    "C#",
+    "Ruby",
+    "Swift",
+    "Go",
+    "Rust",
+    "Kotlin",
+    "PHP",
+    "Scala",
+    "Haskell",
+    "Perl",
+    "Lua",
+    "R",
+    "Objective-C",
+    "Elixir",
+    "Clojure",
+    "F#",
+    "Groovy",
+    "COBOL",
+    "Ada",
+    "Fortran",
+    "Lisp",
+    "Assembly"
+  ]
 
 app.use(cors())
 
@@ -19,6 +47,8 @@ app.get("/:topic/:language", async (req, res)=>{
     //gets topic and language from request
     const {topic} = req.params
     const {language} = req.params
+
+    
     const searchQuery = `${topic} in ${language}`
     let youtubeVideos = []
     let gptResponse

@@ -19,6 +19,8 @@ import TopicsSection from '../../../components/TopicsSection/TopicsSection'
 
 import QuizSection from '../../../components/QuizSection/QuizSection'
 
+import Loading from "./loading"
+
 import ErrorComponent from '../../../components/ErrorComponent/ErrorComponent'
 import { useEffect, useState } from 'react'
 
@@ -28,10 +30,11 @@ import { useEffect, useState } from 'react'
 // }
 
 function Resultpage({params}) {
-  const language = params.language
-  const topic = params.topic
+  const language = decodeURIComponent(params.language)
+  const topic = decodeURIComponent(params.topic)
 
-  
+  const [isLoading, setIsLoading] = useState(true)
+  const [isError, setIsError] = useState(false)
   const [usageInPercent, setUsageInPercent] = useState(0)
   const [currentStatus, setCurrentStatus] = useState("")
   const [docs, setDocs] = useState("")
@@ -58,6 +61,7 @@ function Resultpage({params}) {
       setArticles(gptResponse.articles)
       setRelatedTopics(gptResponse.relatedTopics)
       setQuiz(gptResponse.simpleQuiz)
+      setIsLoading(false)
     })
     .catch((err)=>{
       throw new Error
@@ -65,19 +69,14 @@ function Resultpage({params}) {
   }, [])
 
 
-  return (
+  
+  if (isLoading == false) {
+    return (
     <main className="result-main">
-    <header className="homepage-header">
-        <div className="homepage-inner">
-          <SearchContainer />
-        </div>
-    </header>
-
-    {/* <ErrorComponent /> */}
 
       <section className="result-head">
         <div className="result-head-inner">
-          <h1>{topic} in {language}</h1>
+          <h1>{topic} <span>in</span> {language}</h1>
 
           <div className="boxes">
             <UsageBox usageInPercent={usageInPercent} />
@@ -101,6 +100,10 @@ function Resultpage({params}) {
       <QuizSection quiz={quiz} />
     </main>
   )
+  }else{
+    return <Loading />
+  }
+  
 }
 
 export default Resultpage

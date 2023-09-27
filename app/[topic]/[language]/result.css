@@ -65,6 +65,12 @@ section:nth-child(3)> div > div[class*="heading"] img{
     color: var(--darkestBlue);
     font-weight: normal;
     margin: 1rem 0;
+    text-transform: capitalize;
+}
+
+.result-head span{
+    font: inherit;
+    text-transform: none;
 }
 
 .result-head-inner .boxes{
@@ -153,4 +159,56 @@ section:nth-child(3)> div > div[class*="heading"] img{
     .boxes > div h4{
         font-size:1.4rem;
     }
+}
+
+
+.hypnotic {
+   width: 56px;
+   height: 56px;
+   display: grid;
+   background: linear-gradient(90deg,#474bff 2.2px,#0000 0 calc(100% - 2.2px),#474bff 0) center/100% 15.7px,
+          linear-gradient(0deg, #474bff 2.2px,#0000 0 calc(100% - 2.2px),#474bff 0) center/15.7px 100%,
+          linear-gradient(#474bff 0 0) center/100% 2.2px,
+          linear-gradient(#474bff 0 0) center/2.2px 100%;
+   background-repeat: no-repeat;
+   animation: hypnotic-8xnm9d 4s infinite linear;
+}
+
+.hypnotic::before,
+.hypnotic::after {
+   content: "";
+   grid-area: 1/1;
+   background: inherit;
+   transform-origin: inherit;
+   animation: inherit;
+}
+
+.hypnotic::after {
+   animation-duration: 2s;
+}
+
+.loading-overlay{
+    max-width:100%;
+    max-height: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.centered{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+}
+
+.centered p{
+    font-size: 1.3rem;
+    margin: 2rem 0 0 0;
+}
+
+@keyframes hypnotic-8xnm9d {
+   100% {
+      transform: rotate(1turn);
+   }
 }

@@ -1,3 +1,4 @@
+import SearchContainer from '@/components/SearchContainer/SearchContainer'
 import './globals.css'
 
 export const metadata = {
@@ -8,7 +9,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <header className="homepage-header">
+        <div className="homepage-inner">
+          <SearchContainer />
+        </div>
+    </header>
+        {children}</body>
     </html>
   )
 }
