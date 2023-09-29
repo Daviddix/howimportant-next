@@ -5,8 +5,8 @@ function DocsBox({docs}) {
     <div className="docs">
               <h4>Documentation</h4>
 
-              <a href={docs} target="_blank">
-                {docs.substr(0, 25)}...
+              <a href={docs || ""} target="_blank">
+                {docs?.substr(0, 25)}...
               </a>
             </div>
   )

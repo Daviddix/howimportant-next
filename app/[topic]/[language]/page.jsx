@@ -21,8 +21,8 @@ import QuizSection from '../../../components/QuizSection/QuizSection'
 
 import Loading from "./loading"
 
-import ErrorComponent from '../../../components/ErrorComponent/ErrorComponent'
 import { useEffect, useState } from 'react'
+import Error from './ErrorComponent/error'
 
 // export const metadata = {
 //   title : "HowImportant | Objects in JavaScript",
@@ -33,8 +33,9 @@ function Resultpage({params}) {
   const language = decodeURIComponent(params.language)
   const topic = decodeURIComponent(params.topic)
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true) 
   const [isError, setIsError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
   const [usageInPercent, setUsageInPercent] = useState(0)
   const [currentStatus, setCurrentStatus] = useState("")
   const [docs, setDocs] = useState("")
@@ -47,10 +48,18 @@ function Resultpage({params}) {
 
 
   useEffect(()=>{
+    setIsError(false)
+    setIsLoading(true)
     fetch(`http://localhost:3001/${topic}/${language}`)
     .then((raw)=> raw.json())
     .then((data)=>{
       const gptResponse = JSON.parse(data.chatGPTValue)
+      if(gptResponse.status.toLowerCase() == "failed"){
+        setIsLoading(false)
+        setIsError(true)
+        throw new Error("Not Found")
+        return
+      }
       setUsageInPercent(gptResponse.usageInPercentage)
       setCurrentStatus(gptResponse.currentStatus)
       setDocs(gptResponse.documentation)
@@ -64,13 +73,18 @@ function Resultpage({params}) {
       setIsLoading(false)
     })
     .catch((err)=>{
-      throw new Error
+      setIsLoading(false)
+      setIsError(true)
+      setErrorMessage(err)
     })
   }, [])
 
 
   
   if (isLoading == false) {
+    if(isError == true){
+      return <Error topic={topic} language={language} errorMessage={errorMessage} />
+    }
     return (
     <main className="result-main">
 
@@ -101,6 +115,9 @@ function Resultpage({params}) {
     </main>
   )
   }else{
+    if(isError == true){
+      return <Error topic={topic} language={language} />
+    }
     return <Loading />
   }
   
