@@ -8,11 +8,11 @@ import { useRouter } from 'next/navigation'
 
 
 function SearchContainer({params}) {
-  const [topic, setTopic] = useState("")
-  const [language, setLanguage] = useState("JavaScript")
-  const router = useRouter()
   const languageFromBar = params.language
   const topicFromBar = params.topic
+  const [topic, setTopic] = useState(topicFromBar || "")
+  const [language, setLanguage] = useState(languageFromBar ||"JavaScript")
+  const router = useRouter()
 
   const programmingLanguages = [
     "JavaScript",

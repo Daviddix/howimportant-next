@@ -166,10 +166,10 @@ section:nth-child(3)> div > div[class*="heading"] img{
    width: 56px;
    height: 56px;
    display: grid;
-   background: linear-gradient(90deg,#474bff 2.2px,#0000 0 calc(100% - 2.2px),#474bff 0) center/100% 15.7px,
-          linear-gradient(0deg, #474bff 2.2px,#0000 0 calc(100% - 2.2px),#474bff 0) center/15.7px 100%,
-          linear-gradient(#474bff 0 0) center/100% 2.2px,
-          linear-gradient(#474bff 0 0) center/2.2px 100%;
+   background: linear-gradient(90deg,#006fe6 2.2px,#0000 0 calc(100% - 2.2px),#006fe6 0) center/100% 15.7px,
+          linear-gradient(0deg, #006fe6 2.2px,#0000 0 calc(100% - 2.2px),#006fe6 0) center/15.7px 100%,
+          linear-gradient(#006fe6 0 0) center/100% 2.2px,
+          linear-gradient(#006fe6 0 0) center/2.2px 100%;
    background-repeat: no-repeat;
    animation: hypnotic-8xnm9d 4s infinite linear;
 }

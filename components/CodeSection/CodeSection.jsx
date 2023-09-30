@@ -1,6 +1,9 @@
+"use client"
 import Image from "next/image"
 import codeIcon from "../../assets/icons/code-icon.svg"
 import "./CodeSection.css"
+import "react-highlight/node_modules/highlight.js/styles/vs2015.css";
+import Highlight from 'react-highlight'
 
 function CodeSection({codeExample, language}) {
   
@@ -16,16 +19,9 @@ function CodeSection({codeExample, language}) {
             <div className="code-diagram-header">
               <p>{language}</p>
             </div>
-            <code >
-              <pre>
-
+            <Highlight className={language}>
               {codeExample}
-              </pre>
-              {/* const person = &#123; <br /> 
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name : "John", <br />
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; age : 20 <br />
-              &#125; ; */}
-            </code>
+              </Highlight>
           </div>
 
         </div>

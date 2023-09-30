@@ -42,21 +42,12 @@
     width:10rem;
     background-color: var(--falseBg);
     border-left: 1px solid rgba(0, 0, 0, 0.116);
-    padding: 0rem .5rem;
+    padding: 0rem 1rem;
 }
 
 .fake-select{
     font-family:aktiv-med;
     font-size: 1.3rem;
-}
-
-.fake-select img{
-    max-width: 1.5rem;
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
 }
 
 form .search-icon{
