@@ -53,6 +53,7 @@ function Resultpage({params}) {
     fetch(`https://howimportant-server.onrender.com/${topic}/${language}`)
     .then((raw)=> raw.json())
     .then((data)=>{
+      const gptResponse = JSON.parse(data.chatGPTValue)
       if(gptResponse.status.toLowerCase() == "failed"){
         setIsLoading(false)
         setIsError(true)
