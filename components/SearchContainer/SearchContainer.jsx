@@ -78,7 +78,7 @@ function SearchContainer({params}) {
                 value={language}
                 className="fake-select">
                   {programmingLanguages.map((language)=>{
-                    return <option key={language} onClick={()=> setLanguage(language)} value={language}>{language}</option>
+                    return <option key={language} onClick={(e)=> setLanguage(e.target.value)} value={language}>{language}</option>
                   })}
                 </select>
 
