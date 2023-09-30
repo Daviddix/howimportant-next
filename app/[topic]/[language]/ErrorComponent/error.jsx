@@ -11,7 +11,6 @@ function Error({topic, language, errorMessage}) {
 
   useEffect(()=>{
     console.log(errorMessage)
-    console.log(errorMessage.toString())  
   }, [])
   
     if(errorMessage.toString() == "TypeError: NetworkError when attempting to fetch resource."){

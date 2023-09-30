@@ -19,11 +19,15 @@ function QuizSection({quiz}) {
           <div className="answers">
             <button
             className={clicked == "clicked-right"? "clicked-right" : ""}
-            onClick={()=> setClicked("clicked-right")}
+            onClick={()=> {
+              alert("correct")
+              setClicked("clicked-right")}}
             >{answer}</button>
             <button
             className={clicked == "clicked-wrong"? "clicked-wrong" : ""}
-            onClick={()=> setClicked("clicked-wrong")}
+            onClick={()=> {
+              alert("wrong answer")
+              setClicked("clicked-wrong")}}
             >{wrongAnswer}</button>
           </div>
 

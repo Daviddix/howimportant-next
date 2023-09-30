@@ -4,6 +4,7 @@ function SingleVideo({videoTitle, thumbnail, channelName, id}) {
   return (
     <div className="youtube-video-container">
               <iframe
+              frameBorder="0"
   id="inlineFrameExample"
   title={videoTitle}
   

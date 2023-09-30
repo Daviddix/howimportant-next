@@ -2,16 +2,17 @@
 
 import Image from "next/image"
 import searchIcon from "../../assets/icons/Group.svg"
-import arrow from "../../assets/icons/right-arrow.svg"
 import "./SearchContainer.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from 'next/navigation'
 
 
-function SearchContainer() {
+function SearchContainer({params}) {
   const [topic, setTopic] = useState("")
   const [language, setLanguage] = useState("JavaScript")
   const router = useRouter()
+  const languageFromBar = params.language
+  const topicFromBar = params.topic
 
   const programmingLanguages = [
     "JavaScript",
@@ -49,6 +50,13 @@ function SearchContainer() {
     }
   }
 
+  useEffect(()=>{
+    if(languageFromBar && topicFromBar){
+      setLanguage(decodeURIComponent(languageFromBar).charAt(0).toUpperCase() + decodeURIComponent(languageFromBar).slice(1))
+      setTopic(decodeURIComponent(topicFromBar))
+    }
+  }, [])
+
   return (
     <form>
             <div className="input-container">
@@ -56,7 +64,7 @@ function SearchContainer() {
 
               <div className="input-and-select">
                 <input
-                  type="text"
+                  type="search"
                   name="topic"
                   autoComplete="true"
                   placeholder="Objects"
@@ -70,11 +78,11 @@ function SearchContainer() {
                 value={language}
                 className="fake-select">
                   {programmingLanguages.map((language)=>{
-                    return <option onClick={()=> setLanguage(language)} value={language}>{language}</option>
+                    return <option key={language} onClick={()=> setLanguage(language)} value={language}>{language}</option>
                   })}
                 </select>
 
-                <Image src={searchIcon} className="search-icon"/>
+                <Image alt="search-icon" src={searchIcon} className="search-icon"/>
               </div>
             </div>
 

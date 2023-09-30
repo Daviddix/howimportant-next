@@ -50,13 +50,13 @@ function Resultpage({params}) {
   useEffect(()=>{
     setIsError(false)
     setIsLoading(true)
-    fetch(`http://localhost:3001/${topic}/${language}`)
+    fetch(`https://howimportant-server.onrender.com/${topic}/${language}`)
     .then((raw)=> raw.json())
     .then((data)=>{
-      const gptResponse = JSON.parse(data.chatGPTValue)
       if(gptResponse.status.toLowerCase() == "failed"){
         setIsLoading(false)
         setIsError(true)
+        alert("")
         throw new Error("Not Found")
         return
       }
@@ -83,9 +83,22 @@ function Resultpage({params}) {
   
   if (isLoading == false) {
     if(isError == true){
-      return <Error topic={topic} language={language} errorMessage={errorMessage} />
+      return (<>
+      <header className="homepage-header">
+        <div className="homepage-inner">
+          <SearchContainer params={params} />
+        </div>
+    </header>
+      <Error topic={topic} language={language} errorMessage={errorMessage} />
+      </>)
     }
     return (
+      <>
+      <header className="homepage-header">
+        <div className="homepage-inner">
+          <SearchContainer params={params} />
+        </div>
+    </header>
     <main className="result-main">
 
       <section className="result-head">
@@ -112,13 +125,23 @@ function Resultpage({params}) {
       <TopicsSection relatedTopics={relatedTopics} />
 
       <QuizSection quiz={quiz} />
-    </main>
+    </main></>
   )
   }else{
     if(isError == true){
       return <Error topic={topic} language={language} />
     }
-    return <Loading />
+    return (
+      <>
+      <header className="homepage-header">
+        <div className="homepage-inner">
+          <SearchContainer params={params} />
+        </div>
+    </header>
+    
+    <Loading />
+    </>
+      )
   }
   
 }

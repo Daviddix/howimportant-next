@@ -4,17 +4,16 @@ import arrow from "../../assets/icons/right-arrow.svg"
 import "./Test.css"
 import Link from "next/link"
 
-function Test() {
+function Test({topicName, topicDescription, topicLink}) {
   
   return (
-      <Link href="/arrays/javascript">
+      <Link href={topicLink}>
     <div 
     tabIndex={0} className="test-container">
           <div className="text-content">
-            <h2>Arrays in JavaScript</h2>
+            <h2>{topicName}</h2>
             <p>
-              Arrays in JavaScript are data structures that are used to store
-              multiple values and those values can be...
+              {topicDescription}
             </p>
           </div>
 
