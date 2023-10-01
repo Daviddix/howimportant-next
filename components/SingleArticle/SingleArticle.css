@@ -6,6 +6,11 @@
     padding-bottom: 1rem;
 }
 
+.article-resources a{
+    text-decoration: none;
+    color:initial;
+}
+
 .article-resources .article:not(:last-of-type){
     border-bottom: 1px solid rgba(0, 0, 0, 0.13);
 }
@@ -14,6 +19,8 @@
     max-width: 1.4rem;
     margin: 0 1rem 0 0;
 }
+
+
 
 .other-info .article-heading{
     display: flex;
@@ -32,6 +39,7 @@
 }
 
 .other-info .source{
+    font-size:1.2rem;
     opacity: .8;
 }
 

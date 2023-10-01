@@ -24,15 +24,10 @@ import Loading from "./loading"
 import { useEffect, useState } from 'react'
 import Error from './ErrorComponent/error'
 
-// export const metadata = {
-//   title : "HowImportant | Objects in JavaScript",
-//   description : "Result page"
-// }
-
 function Resultpage({params}) {
   const language = decodeURIComponent(params.language)
   const topic = decodeURIComponent(params.topic)
-
+  const URL = process.env.NEXT_PUBLIC_LOCAL_URL
   const [isLoading, setIsLoading] = useState(true) 
   const [isError, setIsError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
@@ -50,9 +45,17 @@ function Resultpage({params}) {
   useEffect(()=>{
     setIsError(false)
     setIsLoading(true)
-    fetch(`https://howimportant-server.onrender.com/${topic}/${language}`)
+    fetch(`${URL}/${topic}/${language}`)
     .then((raw)=> raw.json())
     .then((data)=>{
+      console.log(data)
+      if(data.response?.data.error.errors[0]?.reason == "quotaExceeded"){
+        setIsLoading(false)
+        setIsError(true)
+        setErrorMessage("rate limited")
+        return
+      }
+
       const gptResponse = JSON.parse(data.chatGPTValue)
       
       if(gptResponse.status.toLowerCase() == "failed"){
@@ -61,6 +64,7 @@ function Resultpage({params}) {
         throw new Error("Not Found")
         return
       }
+
       setUsageInPercent(gptResponse.usageInPercentage)
       setCurrentStatus(gptResponse.currentStatus)
       setDocs(gptResponse.documentation)

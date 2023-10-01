@@ -4,7 +4,7 @@ import React from 'react'
 function SingleTopic({topic, language}) {
   return (
     <Link
-    href={`/${topic}/${language}`}
+    href={`/${topic.replace("/", "-")}/${language}`}
     >
     <p>{topic} in {language}</p>
     </Link>

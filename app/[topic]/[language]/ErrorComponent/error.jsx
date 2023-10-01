@@ -22,6 +22,15 @@ function Error({topic, language, errorMessage}) {
   </p>
   </main>)
     }
+    else if(errorMessage == "rate limited"){
+      return (<main className="error">
+      <Image src={BS} alt="girl holding a phone" />
+
+  <p>
+      {`Oops, it seems like you've been rate limited. Please wait a while before trying to search. Thank you`}
+  </p>
+  </main>)
+    }
     else{    
     return (
     <main className="error">
