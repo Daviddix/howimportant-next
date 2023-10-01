@@ -46,7 +46,7 @@ function SearchContainer({params}) {
   function handleSearch(e){
     e.preventDefault()
     if(topic && language){
-      router.push(`/${encodeURIComponent(topic)}/${encodeURIComponent(language)}`)
+      router.push(`/${encodeURIComponent(topic.trim())}/${encodeURIComponent(language.trim())}`)
     }
   }
 

@@ -4,8 +4,10 @@ import "./Homepage.css"
 
 
 const topicsToTest = [{topicName : "Arrays in JavaScript", topicDescription : "Arrays in JavaScript are data structures that are used to store multiple values and those values can be...", topicLink : "/arrays/javascript"},
- {topicName : "Lists in Python", topicDescription : "Arrays in JavaScript are data structures that are used to store multiple values and those values can be...", topicLink : "/List/Python"},
-  {topicName : "Functions in Rust", topicDescription : "Arrays in JavaScript are data structures that are used to store multiple values and those values can be...", topicLink : "Functions/Rust"}]
+ {topicName : "Strings in Python", topicDescription : `Strings in Python are sequences of characters enclosed in single quotes ('') or double quotes (""). They are...`, topicLink : "/Strings/Python"},
+  {topicName : "Functions in Python", topicDescription : "Functions in Python are used to group a set of statements together to perform a specific task. They can be...", topicLink : "Functions/Python"},
+  {topicName : "Loops in Lua", topicDescription : "Loops in Lua are used to execute a block of code repeatedly. The most common types of loops in Lua are...", topicLink : "Loops/Lua"}
+]
 
 const mappedTopicTests = topicsToTest.map(({topicName, topicDescription, topicLink})=>{
   return <Test key={topicName} topicName={topicName} topicDescription={topicDescription} topicLink={topicLink} />

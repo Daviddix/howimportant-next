@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "googleapis": "^126.0.1",
+    "idb-keyval": "^6.2.1",
     "next": "13.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

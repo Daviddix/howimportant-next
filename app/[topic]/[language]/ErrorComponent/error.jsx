@@ -1,17 +1,11 @@
-"use client"
 import "./error.css"
 import signal from "../../../../assets/images/illustration.svg"
 import BS from "../../../../assets/images/Bad-Signal.svg"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 
 
 function Error({topic, language, errorMessage}) {
-
-  useEffect(()=>{
-    console.log(errorMessage)
-  }, [])
   
     if(errorMessage.toString() == "TypeError: NetworkError when attempting to fetch resource."){
       return (<main className="error">

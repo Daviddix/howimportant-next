@@ -22,7 +22,10 @@ import QuizSection from '../../../components/QuizSection/QuizSection'
 import Loading from "./loading"
 
 import { useEffect, useState } from 'react'
+
 import Error from './ErrorComponent/error'
+
+import { get, set, del } from 'idb-keyval';
 
 function Resultpage({params}) {
   const language = decodeURIComponent(params.language)
@@ -45,10 +48,33 @@ function Resultpage({params}) {
   useEffect(()=>{
     setIsError(false)
     setIsLoading(true)
+    //checks idb if search term exists
+    const searchTerm = `${topic} in ${language}`.toLowerCase()
+    get(searchTerm)
+    .then((val) => {
+      if(val){
+        //if it exists, return it
+        console.log("getting from DB")
+       const gptResponseFromDB = JSON.parse(val.chatGPTValue)
+      const ytVideosFromDB = val.youtubeValue
+
+       setUsageInPercent(gptResponseFromDB.usageInPercentage)
+       setCurrentStatus(gptResponseFromDB.currentStatus)
+       setDocs(gptResponseFromDB.documentation)
+       setOverview(gptResponseFromDB.overviewOfTopic)
+       setCodeExample(gptResponseFromDB.syntaxExample)
+       setYoutubeVideos(ytVideosFromDB)
+       
+       setArticles(gptResponseFromDB.articles)
+       setRelatedTopics(gptResponseFromDB.relatedTopics)
+       setQuiz(gptResponseFromDB.simpleQuiz)
+       setIsLoading(false)
+       setIsError(false)
+      }else{
+        //if it doesn't exist, make the fetch and save it
     fetch(`${URL}/${topic}/${language}`)
     .then((raw)=> raw.json())
     .then((data)=>{
-      console.log(data)
       if(data.response?.data.error.errors[0]?.reason == "quotaExceeded"){
         setIsLoading(false)
         setIsError(true)
@@ -76,12 +102,17 @@ function Resultpage({params}) {
       setRelatedTopics(gptResponse.relatedTopics)
       setQuiz(gptResponse.simpleQuiz)
       setIsLoading(false)
+      set(searchTerm, data)
     })
     .catch((err)=>{
       setIsLoading(false)
       setIsError(true)
       setErrorMessage(err)
     })
+      }
+    })
+    
+    
   }, [])
 
 
