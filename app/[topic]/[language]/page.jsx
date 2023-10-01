@@ -27,7 +27,7 @@ import Error from './ErrorComponent/error'
 function Resultpage({params}) {
   const language = decodeURIComponent(params.language)
   const topic = decodeURIComponent(params.topic)
-  const URL = process.env.NEXT_PUBLIC_LOCAL_URL
+  const URL = process.env.NEXT_PUBLIC_REAL_URL
   const [isLoading, setIsLoading] = useState(true) 
   const [isError, setIsError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
