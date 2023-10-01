@@ -76,9 +76,10 @@ function SearchContainer({params}) {
 
                 <select 
                 value={language}
+                onChange={(e)=> setLanguage(e.target.value)}
                 className="fake-select">
                   {programmingLanguages.map((language)=>{
-                    return <option key={language} onClick={(e)=> setLanguage(e.target.value)} value={language}>{language}</option>
+                    return <option key={language} onClick={(e)=> setLanguage(e.target.value)} defaultValue={language}>{language}</option>
                   })}
                 </select>
 

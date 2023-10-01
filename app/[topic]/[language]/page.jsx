@@ -108,6 +108,7 @@ function Resultpage({params}) {
       setIsLoading(false)
       setIsError(true)
       setErrorMessage(err)
+      del(searchTerm)
     })
       }
     })

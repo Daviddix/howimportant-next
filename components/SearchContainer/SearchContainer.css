@@ -39,7 +39,7 @@
     -ms-border-radius: 0;
     -o-border-radius: 0;
     border:none;
-    width:10rem;
+    width:12rem;
     background-color: var(--falseBg);
     border-left: 1px solid rgba(0, 0, 0, 0.116);
     padding: 0rem 1rem;
