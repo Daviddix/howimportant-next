@@ -1,11 +1,17 @@
 .code-diagram .code-diagram-header{
-    height:2rem;
+    height:2.5rem;
     background-color: var(--codeHeader);
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding-right: 1.5rem;
     margin: 0 0 1rem 0;
+}
+
+.code-diagram-header p{
+    font-size:1.4rem;
+    letter-spacing: 0;
+    text-transform: capitalize;
 }
 
 .code-example-inner .code-diagram{

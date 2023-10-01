@@ -1,6 +1,9 @@
 .quiz-inner .question{
     margin: 1rem 0rem;
     font-size: 1.4rem;
+    color: var(--textColor);
+    letter-spacing: -.3px;
+    line-height: 1.5;
 }
 
 .answers button{

@@ -22,7 +22,7 @@
 
 .input-and-select input{
     background-color: hsl(0, 0%, 98%);
-    flex:1;
+    width:100%;
     padding: 1.2rem 1.2rem 1.2rem 4rem;
     border:none;
     font-family: aktiv-reg;
@@ -43,6 +43,7 @@
     background-color: var(--falseBg);
     border-left: 1px solid rgba(0, 0, 0, 0.116);
     padding: 0rem 1rem;
+    cursor: pointer;
 }
 
 .fake-select{

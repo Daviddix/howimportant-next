@@ -38,10 +38,16 @@ section > div{
 section > div > div[class*="heading"]{
     display: flex;
     align-items: center;
-    margin-bottom: .5rem;
+    margin-bottom: 2rem;
 }
 
-section > div > div[class*="heading"] h2{
+.overview-inner .overview-heading{
+    margin-bottom: .8rem;
+}
+
+section > div > div[class*="heading"] h2,
+.quiz-inner h1
+{
     font-family: aktiv-med;
     font-weight: normal;
     color: var(--darkestBlue);
@@ -49,15 +55,15 @@ section > div > div[class*="heading"] h2{
     letter-spacing: -.5px;
 }
 
-section > div > div[class*="heading"] img{
-    width: 1.5rem;
+.overview-heading img, .code-example-heading img, .resources-heading img, .topics-heading img{
+    max-width: 2.5rem;
     margin-right: 1rem;
 }
 
-section:nth-child(3)> div > div[class*="heading"] img{
-    width: 2.2rem;
+.overview-heading img{
     margin-right: .5rem;
 }
+
 
 .result-head h1{
     font-size: 2.8rem;
@@ -121,12 +127,14 @@ section:nth-child(3)> div > div[class*="heading"] img{
     margin-bottom: 2rem;
     }
 
-    section > div > div[class*="heading"] h2{
+    section > div > div[class*="heading"] h2,
+    .quiz-inner h1
+    {
         font-size: 2rem;
     }
 
-    section > div > div[class*="heading"] img{
-        width: 1.8rem;
+    .overview-heading img, .code-example-heading img, .resources-heading img, .topics-heading img{
+        max-width: 2.8rem;
         
     }
 

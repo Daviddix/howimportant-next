@@ -5,3 +5,7 @@
     font-family: aktiv-bold;
     text-decoration: underline;
 }
+
+.topics-body{
+    max-width:fit-content;
+}

@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
+import "./SingleTopic.css"
 
 function SingleTopic({topic, language}) {
   return (
     <Link
     href={`/${topic.replace("/", "-")}/${language}`}
     >
-    <p>{topic} in {language}</p>
+    <p className="topic">{topic} in {language}</p>
     </Link>
   )
 }
