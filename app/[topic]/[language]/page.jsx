@@ -30,7 +30,7 @@ import { get, set, del } from 'idb-keyval';
 function Resultpage({params}) {
   const language = decodeURIComponent(params.language)
   const topic = decodeURIComponent(params.topic)
-  const URL = process.env.NEXT_PUBLIC_REAL_URL
+  const URL = "https://howimportant-server.onrender.com"
   const [isLoading, setIsLoading] = useState(true) 
   const [isError, setIsError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")

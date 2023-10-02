@@ -12,7 +12,18 @@ const youtubeApiKey  = process.env.YOUTUBE
 const { google } = require('googleapis')
 const youtube = google.youtube('v3');
 
-app.use(cors())
+const whitelist = ['http://localhost:3000', 'https://howimportant-next.vercel.app/', 'https://howimportant-next.vercel.app', 'https://howimportant-next-daviddix.vercel.app/', 'https://howimportant-next-git-master-daviddix.vercel.app/']
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions))
 
 
 app.get("/:topic/:language", async (req, res)=>{
