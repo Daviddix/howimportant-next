@@ -72,6 +72,11 @@ form > button{
     -ms-border-radius: .8rem;
     -o-border-radius: .8rem;
     margin: 1rem 0 0 0;
+    transition: box-shadow .3s ease-in;
+    -webkit-transition: box-shadow .3s ease-in;
+    -moz-transition: box-shadow .3s ease-in;
+    -ms-transition: box-shadow .3s ease-in;
+    -o-transition: box-shadow .3s ease-in;
 }
 
 
@@ -111,4 +116,10 @@ form > button{
         margin: 0 0 0 1.5rem;
         width:17rem;
     }
+}
+
+
+
+form > button:hover{
+    box-shadow: 0 .2rem .5rem .1rem hsla(211, 100%, 61%, 0.384);
 }
