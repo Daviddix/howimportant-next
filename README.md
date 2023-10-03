@@ -1,3 +1,56 @@
+# <p style="text-align: center;">HowImportant</p>
+
+![howImportant](/app/opengraph-image.jpg)
+
+## Table of contents
+
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Link](#link)
+  - [Built with](#built-with)
+  - [Author](#author)
+
+## Overview
+HowImportant is a web application that gives you information about various topics from different programming languages and it also gives ratings, documentation,learning resources and other useful information.
+
+### Features
+
+Users are able to:
+
+- Search for a topic in a programming language
+
+- Get information about that topic; usage, documentation, youtube tutorials, overview e.t.c
+
+- Take a simple quiz related to that topic
+
+### Screenshot
+
+![screenshot of home page](/assets/images/preview-1.png)
+![screenshot of result of arrays in javascript](/assets/images/preview-2.png)
+
+
+### Link
+
+- Live Site URL: [HowImportant](https://howimportant-next.vercel.app/)
+
+
+### Built with
+
+- NextJS
+- ExpressJS
+- indexedDB for caching
+- Vanilla CSS
+- Design : invision Studio
+
+
+## Author
+- Twitter - [@daviddixx](https://www.twitter.com/dixx_david)
+
+
+<br />
+<br />
+<br />
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
