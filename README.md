@@ -26,7 +26,7 @@ Users are able to:
 ### Screenshot
 
 ![screenshot of home page](/assets/images/preview-1.png)
-![screenshot of result of arrays in javascript](/assets/images/preview-2.png)
+![screenshot of result of arrays in javascript](/assets/images/preview-2.PNG)
 
 
 ### Link
