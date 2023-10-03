@@ -47,3 +47,9 @@ html{
   src: url("../assets/fonts/AktivGrotesk-Bold.ttf");
 }
 
+.tag{
+  font-size:1.4rem;
+  text-align:center;
+  opacity:  .7;
+  padding: 2rem;
+}

@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+        <p className="tag">Designed and Built by <a href="http://nsikandavid.dev" target="_blank" rel="noopener noreferrer">Emmanuel Nsikan-David</a></p>
       </body>
     </html>
   )
