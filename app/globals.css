@@ -50,6 +50,10 @@ html{
 .tag{
   font-size:1.4rem;
   text-align:center;
-  opacity:  .7;
+  opacity:  .6;
   padding: 2rem;
+}
+
+.tag a{
+  color:#006fe6;
 }
