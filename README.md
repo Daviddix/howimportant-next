@@ -45,6 +45,7 @@ Users are able to:
 
 ## Author
 - Twitter - [@daviddixx](https://www.twitter.com/dixx_david)
+- My Portfolio - [Nsikan-David](https://nsikandavid.dev)
 
 
 <br />
