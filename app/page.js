@@ -18,6 +18,7 @@ function Homepage({params}) {
     <main>
       <header className="homepage-header">
         <div className="homepage-inner">
+        <h1>Discover Useful Ratings for Programming Topics</h1>
           <SearchContainer params={params} />
         </div>
     </header>
