@@ -33,8 +33,6 @@ app.get("/:topic/:language", async (req, res)=>{
 
     
     const searchQuery = `${topic} in ${language}`
-    let youtubeVideos = []
-    let gptResponse
 
     const params = {
         part: 'snippet',
@@ -43,50 +41,60 @@ app.get("/:topic/:language", async (req, res)=>{
         maxResults: 4, 
         key: youtubeApiKey,
     } 
-
     try{
-      const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-            {
-                "role": "system",
-                "content": "you will be given a programming language and a topic in that programming language and you should check if the topic does not exist in the provided programming language,  return:\n\n{\n    \"message\": \"Topic not found\",\n    \"status\": \"failed\"\n}\n\nif it exist, return a javascript object object containing useful information about that topic, do this in the context that the information will be provided to a beginner in programming in the format of:\n\n{\n    \"status\": \"success\",\n    \"usageInPercentage\": 70, // Integer representing how much beginners should be concerned about it\n    \"currentStatus\": \"in use\", // Either \"in use\" or \"deprecated\"\n    \"documentation\": \"URL to official documentation\",\n    \"overviewOfTopic\": \"A brief overview of the topic in the programming language, if it is something that is not used anymore, signify here, if it is something that is not safe to use, signify here, if it is something that has a better version or way to do it, signify here\",\n    \"syntaxExample\": \"An example of the syntax for the topic that best describes the topic, including comments that describes what the code is doing and the expected value of the code if any and make sure it is formatted properly\",\n    \"articles\": [\n        {\n            \"title\": \"Article title\",\n            \"site\": \"Article Site\",\n            \"link\": \"URL to the article\"\n        },\n        // Repeat for up to 3 more articles and make sure the articles are from the year 2020\n    ],\n    \"relatedTopics\": [{\n            \"topicName\": \"Related topic name e.g arrays\" ,\n            \"language\": \"Related topic language e.g javascript\",\n      } repeat for up to 3 more times,\n ]\"simpleQuiz\": \"{q : A simple true or false quiz question based on the topic given, a:the answer to the given question. either true or false}\",\n \n}\n\n\ndo not respond with any other text other than the javascript object, do not respond with any other commentary text or contextual text or explanation, only the object"
+        const [openaiResponse, youtubeResponse] = await Promise.all([
+          openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [
+              {
+                role: "system",
+                content: `you will be given a programming language and a topic in that programming language, if you receive something that isn't related to any programming language, return {
+                          "status" : "failed",
+                          "message" : "enter a valid programming language or topic"
+                        }. if it is related to a programming language but the topic does not exist in the programming language, return {
+                          "status" : "failed",
+                          "message" : "topic does not exist in that programming language"
+                        }.
+                        If it is related to a programming language and the topic exists in the programming language, return {
+                          "status" : "success",
+                          "usageInPercentage" : //an integer representing how beginners should be concerned about this topic,
+"currentStatus" : //either "in use" if the topic is still being used or "depreciated" if the topic is not in use,
+"documentation" : //URL of the original documentation,
+"overviewOfTopic" : //a brief and easy to understand overview of the topic in the programming language. if it is something that is not used anymore, signify here, if it is something that is dangerous, signify here,
+"syntaxExample" : //a formatted simple example of of the syntax of the topic, including comments that describe what the code is doing and the expected value of the code if any,
+"articles" : [{"title" : "Article title", site: "name of the website the article is gotten from", link:"URL directing to the website of the article"}, {"title" : "Article title", site: "name of the website the article is gotten from", link:"URL directing to the website of the article"}, {"title" : "Article title", site: "name of the website the article is gotten from", link:"URL directing to the website of the article"}],
+relatedTopics : [{topicName: //name of the related topic, "language": //related topic language}, {topicName: //name of the related topic, "language": //related topic language}, {topicName: //name of the related topic, "language": //related topic language}],
+"simpleQuiz" : {q: //a simple true or false quiz question based on the topic given, a: //the answer to the question given, either true or false}
+                        }
+                        `,
               },
-            {
-              "role": "user",
-              "content": searchQuery
-            }
-          ],
-          temperature: 1,
-          max_tokens: 900,
-          top_p: 1,
-          frequency_penalty: 0, 
-          presence_penalty: 0,
-        });
-        gptResponse = response.choices[0].message.content
-    
-        //makes youtube api request 
-         youtube.search.list(params, async (err, response) => {
-            if (err) {
-              console.error('Error searching for videos:', err)
-              res.status(403).send(err)
-              return;
-            }
-          
-            const videos = await response.data.items;
-          
-            if (videos.length === 0) {
-              console.log('No videos found.');
-            } else {
-              youtubeVideos = videos
-              res.send({
-                chatGPTValue : gptResponse,
-                youtubeValue : youtubeVideos  
-              })
-             
-            }
-        })
-    }
+              {
+                role: "user",
+                content: searchQuery,
+              },
+            ],
+            temperature: 1,
+            max_tokens: 900,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+          }),
+          new Promise((resolve, reject) => {
+            youtube.search.list(params, (err, response) => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(response);
+              }
+            });
+          }),
+        ]);
+        const videos = await youtubeResponse.data.items;
+        res.send({
+           chatGPTValue : openaiResponse.choices[0].message.content,
+          youtubeValue : videos  
+                })
+      }
     catch(err){
       res.status(400).send({message: err, status: "failed"})
     }

@@ -105,6 +105,7 @@ function Resultpage({params}) {
       set(searchTerm, data)
     })
     .catch((err)=>{
+      console.log(err)
       setIsLoading(false)
       setIsError(true)
       setErrorMessage(err)
